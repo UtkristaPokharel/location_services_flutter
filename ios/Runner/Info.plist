@@ -49,6 +49,12 @@
 	<string>📍 We need your location while you are using the app.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>📍 We need your location to provide continuous tracking.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+    		<string>http</string>
+    		<string>https</string>
+	</array>
+
 
 </dict>
 </plist>
