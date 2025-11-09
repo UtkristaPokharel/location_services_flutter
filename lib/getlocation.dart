@@ -12,16 +12,14 @@ class _GetLocationState extends State<GetLocation> {
   String locationMessage = "Get your location...";
 
   Future<void> _getCurrentLocation() async {
-    // Check if location services are enabled on the device.
+
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      // 🚨 Location services are off
       setState(() => locationMessage = '📍 Location services are disabled. Opening settings...');
       await Geolocator.openLocationSettings(); // <-- opens device location settings
       return;
     }
 
-    // Check and request permission.
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -33,7 +31,7 @@ class _GetLocationState extends State<GetLocation> {
 
     if (permission == LocationPermission.deniedForever) {
       setState(() => locationMessage = '🔒 Location permissions are permanently denied. Please enable from settings.');
-      await Geolocator.openAppSettings(); // <-- opens app settings
+      await Geolocator.openAppSettings();
       return;
     }
     try {
