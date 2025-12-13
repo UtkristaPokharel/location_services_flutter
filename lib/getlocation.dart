@@ -137,7 +137,7 @@ class _GetLocationState extends State<GetLocation> {
               child: const Text("Get Location"),
             ),
             const SizedBox(height: 20),
-            ElevatedButton (
+            ElevatedButton(
               onPressed: () async {
                 if (_latitude == null || _longitude == null) {
                   await _getCurrentLocation();
